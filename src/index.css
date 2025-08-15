@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 141 98% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 141 98% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 141 98% 13%;
+
+    /* Pakistani flag green - primary color */
+    --primary: 141 98% 13%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 141 80% 25%;
+    --primary-glow: 141 60% 40%;
+
+    /* Pakistani flag red - secondary color */
+    --secondary: 0 100% 50%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-light: 0 80% 60%;
+
+    --muted: 141 20% 96%;
+    --muted-foreground: 141 15% 45%;
+
+    --accent: 0 100% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 141 20% 90%;
+    --input: 141 10% 95%;
+    --ring: 141 98% 13%;
+
+    /* E-commerce specific colors */
+    --success: 120 100% 25%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+    --price: 0 100% 50%;
+    --discount: 120 100% 25%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(var(--muted)));
+
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --shadow-card: 0 4px 20px -4px hsl(var(--foreground) / 0.1);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 141 98% 8%;
+    --foreground: 0 0% 98%;
+
+    --card: 141 90% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 141 90% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 141 60% 40%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 141 50% 35%;
+    --primary-glow: 141 40% 50%;
+
+    --secondary: 0 80% 60%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-light: 0 70% 55%;
+
+    --muted: 141 30% 15%;
+    --muted-foreground: 141 20% 70%;
+
+    --accent: 0 80% 60%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 141 30% 20%;
+    --input: 141 25% 18%;
+    --ring: 141 60% 40%;
+
+    --success: 120 80% 35%;
+    --warning: 38 80% 55%;
+    --price: 0 80% 60%;
+    --discount: 120 80% 35%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.5);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.6);
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Mobile-first animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-pulse-gentle {
+    animation: pulseGentle 2s ease-in-out infinite;
+  }
+
+  /* E-commerce specific styles */
+  .price-text {
+    @apply text-price font-bold;
+  }
+  
+  .discount-badge {
+    @apply bg-success text-success-foreground px-2 py-1 rounded-full text-xs font-semibold;
+  }
+  
+  .product-card {
+    @apply bg-card rounded-lg shadow-card hover:shadow-elegant transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .mobile-container {
+    @apply max-w-md mx-auto bg-background min-h-screen;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulseGentle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
