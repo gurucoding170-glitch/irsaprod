@@ -1,7 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
     repositories {
         google()
         mavenCentral()
@@ -15,14 +14,20 @@ buildscript {
     }
 }
 
-apply from: "variables.gradle"
-
+// ✅ Force Java 17 for every Java compile task
 allprojects {
+    tasks.withType(JavaCompile).configureEach {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
     repositories {
         google()
         mavenCentral()
     }
 }
+
+apply from: "variables.gradle"
 
 task clean(type: Delete) {
     delete rootProject.buildDir
